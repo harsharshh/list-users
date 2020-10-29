@@ -1,0 +1,98 @@
+<nb-card style="height: 95vh; width: 60vh;" class="bg-white">
+  <nb-card-header class="header justify-content-between bg-white">
+    <div class="row d-flex">
+      <nb-actions>
+        <nb-action class="pr-0" icon="close-outline" nbTooltip="Close" (click)="close()"></nb-action>
+      </nb-actions>
+      <div>
+        <h6 class="text-muted" *ngIf="!userId">&nbsp;Create User</h6>
+        <h6 class="text-muted" *ngIf="userId">&nbsp; Update User</h6>
+      </div>
+    </div>
+  </nb-card-header>
+
+  <nb-card-body>
+    <div class="container-fluid">
+      <form [formGroup]="userForm">
+        <div class="row mt-2  d-flex justify-content-center align-items-center">
+          <div class="col-md-12 col-sm-12 form-group">
+            <label class="label required">First name
+            </label>
+            <input class="form-control"
+                   [ngClass]="{ 'is-invalid': f?.first_name?.touched && f?.first_name?.errors }"
+                   nbInput fullWidth placeholder="Enter Full first_name" formControlName="first_name"/>
+            <div *ngIf="f?.first_name?.touched && f?.first_name?.errors" class="invalid-feedback">
+              <div *ngIf="f?.first_name?.errors?.required"> First name is required</div>
+            </div>
+          </div>
+
+
+          <div class="col-md-12 col-sm-12 form-group">
+            <label class="label required">Last name
+            </label>
+            <input class="form-control"
+                   [ngClass]="{ 'is-invalid': f?.last_name?.touched && f?.last_name?.errors }"
+                   nbInput fullWidth placeholder="Enter Full first_name" formControlName="last_name"/>
+            <div *ngIf="f?.last_name?.touched && f?.last_name?.errors" class="invalid-feedback">
+              <div *ngIf="f?.last_name?.errors?.required"> last name is required</div>
+            </div>
+          </div>
+
+
+          <div class="col-md-12 col-sm-12 form-group">
+            <label class="label required">Phone Number
+            </label>
+            <input class="form-control"
+                   [ngClass]="{ 'is-invalid': f?.phone?.touched && f?.phone?.errors }"
+                   nbInput fullWidth placeholder="Enter phone" formControlName="phone"/>
+            <div *ngIf="f?.phone?.touched && f?.phone?.errors" class="invalid-feedback">
+              <div *ngIf="f?.phone?.errors?.required"> phone no. is required</div>
+            </div>
+          </div>
+
+
+          <div class="col-md-12 col-sm-12 form-group">
+            <label class="label required">Email
+            </label>
+            <input class="form-control"
+                   [ngClass]="{ 'is-invalid': f?.email?.touched && f?.email?.errors }"
+                   nbInput fullWidth placeholder="Enter email" formControlName="email"/>
+            <div *ngIf="f?.email?.touched && f?.email?.errors" class="invalid-feedback">
+              <div *ngIf="f?.email?.errors?.required"> email is required</div>
+            </div>
+          </div>
+
+
+          <div class="col-md-12 col-sm-12 form-group">
+            <label class="label required">Address
+            </label>
+            <input class="form-control"
+                   [ngClass]="{ 'is-invalid': f?.address?.touched && f?.address?.errors }"
+                   nbInput fullWidth placeholder="Enter address" formControlName="address"/>
+            <div *ngIf="f?.address?.touched && f?.address?.errors" class="invalid-feedback">
+              <div *ngIf="f?.address?.errors?.required"> address is required</div>
+            </div>
+          </div>
+
+
+          <div class="col-md-12 col-sm-12 form-group">
+            <label class="label required">Pincode
+            </label>
+            <input class="form-control"
+                   [ngClass]="{ 'is-invalid': f?.pincode?.touched && f?.pincode?.errors }"
+                   nbInput fullWidth placeholder="Enter pincode" formControlName="pincode"/>
+            <div *ngIf="f?.pincode?.touched && f?.pincode?.errors" class="invalid-feedback">
+              <div *ngIf="f?.pincode?.errors?.required"> pincode is required</div>
+            </div>
+          </div>
+
+
+
+          <div class="col-md-12">
+            <button class="float-right" nbButton status="primary" (click)="submit()" size="small"> Submit</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </nb-card-body>
+</nb-card>

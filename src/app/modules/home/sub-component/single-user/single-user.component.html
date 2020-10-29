@@ -1,0 +1,57 @@
+<nb-card style="height: 95vh; width: 60vh;" class="bg-white">
+  <nb-card-header class="header justify-content-between bg-white">
+    <div class="row d-flex">
+      <nb-actions>
+        <nb-action class="pr-0" icon="close-outline" nbTooltip="Close" (click)="close()"></nb-action>
+      </nb-actions>
+      <div>
+        <h6 class="text-muted">&nbsp;Single User</h6>
+      </div>
+    </div>
+  </nb-card-header>
+
+  <nb-card-body>
+    <ng-container *ngIf="data; else noDataDound">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 d-flex justify-content-center align-items-center">
+            <nb-user size="giant"
+                     onlyPicture
+                     [name]="data?.first_name"
+                     [picture]="data?.avatar">
+            </nb-user>
+          </div>
+          <div class="col-12 text-center mt-4">
+            <h1>{{data?.first_name}} {{data?.last_name}}</h1>
+          </div>
+          <div class="col-12 text-center mt-4">
+            <h5 class="text-primary">{{data?.email}}</h5>
+          </div>
+          <div class="col-12 text-center mt-4">
+            <h6 class="text-muted">{{data?.phone ? data?.phone: 'Phone not avaible'}}</h6>
+          </div>
+          <div class="col-12 text-center mt-4">
+            <h6 class="text-muted">{{data?.email ? data?.email: 'Email not avaible'}}</h6>
+          </div>
+          <div class="col-12 text-center mt-4">
+            <h6 class="text-muted">{{data?.address ? data?.address: 'Address not avaible'}}</h6>
+          </div>
+          <div class="col-12 text-center mt-4">
+            <h6 class="text-muted">{{data?.pincode ? data?.pincode: 'Pincode not avaible'}}</h6>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </nb-card-body>
+</nb-card>
+
+<ng-template #noDataDound>
+  <div class="h-100 d-flex justify-content-center align-items-center">
+    <div class="align-self-center">
+      <div class="d-flex justify-content-center align-items-center">
+        <nb-icon icon="alert-circle-outline" status="warning" style="height: 5rem; width: 5rem"></nb-icon>
+      </div>
+      <h1 class="font-weight-normal mt-4">No Data Found</h1>
+    </div>
+  </div>
+</ng-template>
